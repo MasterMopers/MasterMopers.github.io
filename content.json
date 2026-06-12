@@ -1,116 +1,61 @@
 {
-  "site": {
-    "name": "name",
-    "role": "computational physics @ Carnegie Mellon University",
-    "bio": "Insert a description here about: <a href=\"#\">[topic]</a>. Maybe currently at <a href=\"#\">[origami]</a> or prev at <a href=\"#\">[amazon]</a> ",
+  "about": {
+    "name": "Felipe Caceres - Fernandez",
+    "identity": "Computational Physics @ Carnegie Mellon University",
+    "bio": "Brief background and academics go here — what you study, what you're into, and a sentence or two of context. Mention relevant coursework, research interests, or focus areas.",
     "links": [
-      { "key": "github", "label": "github.com/username", "url": "https://github.com/username" },
-      { "key": "email", "label": "blank@andrew.cmu.edu", "url": "mailto:blank@andrew.cmu.edu" },
-      { "key": "cv", "label": "cv.pdf", "url": "#" }
+      { "key": "linkedin", "label": "linkedin.com/in/cfelipef", "url": "https://www.linkedin.com/in/cfelipef/" },
+      { "key": "email", "label": "fcaceres[at]andrew[dot]cmu[dot]edu" }
     ]
   },
+  "experience": [
+    {
+      "org": "Organization Name",
+      "role": "Role / Title",
+      "dates": "Summer 2025",
+      "description": "One to two sentences describing what you did, the scope of the work, and any notable outcomes or tools used."
+    },
+    {
+      "org": "Research Lab Name",
+      "role": "Undergraduate Researcher",
+      "dates": "2024 – present",
+      "description": "One to two sentences describing the research focus, your contributions, and any results or publications."
+    }
+  ],
   "projects": [
     {
-      "slug": "sim-arm",
       "title": "sim-arm",
       "description": "physics-based 6-DOF manipulator simulator",
-      "tagline": "A physics-based simulator for 6-DOF robotic manipulators — rigid-body dynamics, contact, and real-time control in a single loop.",
-      "featured": true,
-      "status": "active",
-      "year": "year",
-      "tech": "skill · skill",
-      "thumbnail": null,
-      "hero": null,
+      "tech": ["python", "numpy", "pybullet"],
+      "detail": "A from-scratch simulator for articulated robot arms, integrating rigid-body dynamics, contact resolution, and joint limits in a configurable control loop. Built to test motion-planning and control ideas without risking real hardware. Every force, constraint, and integration step is inspectable and logged.",
       "links": [
-        { "key": "repo", "label": "repo", "url": "https://github.com/username/sim-arm" },
-        { "key": "demo", "label": "demo", "url": "#" }
-      ],
-      "sections": [
-        {
-          "label": "// overview",
-          "paragraphs": [
-            "sim-arm is a from-scratch simulator for articulated robot arms. It integrates full rigid-body dynamics, resolves contacts and joint limits, and runs a configurable control loop fast enough to drive hardware in the loop.",
-            "I built it to test motion-planning and control ideas without risking real hardware — and to keep the physics legible: every force, constraint, and integration step is inspectable and logged."
-          ]
-        },
-        {
-          "label": "// how it works",
-          "paragraphs": [
-            "A semi-implicit Euler integrator advances joint positions and velocities each step. Constraints are projected using a sequential-impulse solver tuned for small articulated chains."
-          ]
-        }
-      ],
-      "gallery": []
+        { "key": "repo", "label": "repo", "url": "https://github.com/username/sim-arm" }
+      ]
     },
     {
-      "slug": "kalman-rs",
       "title": "kalman-rs",
       "description": "sensor-fusion & state estimation library",
-      "tagline": "A small, well-typed Kalman/EKF/UKF library in Rust — focused on legibility and zero-allocation hot paths.",
-      "featured": true,
-      "status": "active",
-      "year": "2024",
-      "tech": "rust · nalgebra",
-      "thumbnail": null,
-      "hero": null,
+      "tech": ["rust", "nalgebra"],
+      "detail": "A small, well-typed Kalman/EKF/UKF library focused on legibility and zero-allocation hot paths. Implements common Bayesian filters with an emphasis on numerical stability and ergonomic APIs.",
       "links": [
         { "key": "repo", "label": "repo", "url": "https://github.com/username/kalman-rs" }
-      ],
-      "sections": [
-        {
-          "label": "// overview",
-          "paragraphs": [
-            "kalman-rs is a generic implementation of common Bayesian filters with a focus on numerical stability and ergonomics."
-          ]
-        }
-      ],
-      "gallery": []
+      ]
     },
     {
-      "slug": "nbody-gpu",
       "title": "nbody-gpu",
       "description": "CUDA n-body gravitational solver",
-      "tagline": "An n-body gravitational simulator that pushes millions of particles per second through a tiled CUDA kernel.",
-      "featured": true,
-      "status": "archived",
-      "year": "2023",
-      "tech": "cuda · c++ · python",
-      "thumbnail": null,
-      "hero": null,
+      "tech": ["cuda", "c++", "python"],
+      "detail": "A tiled, shared-memory CUDA implementation of the all-pairs n-body problem capable of pushing millions of particles per second. Built as a robotics club project to explore GPU programming and numerical methods. Barnes-Hut acceleration is a planned follow-up.",
       "links": [
         { "key": "repo", "label": "repo", "url": "https://github.com/username/nbody-gpu" }
-      ],
-      "sections": [
-        {
-          "label": "// overview",
-          "paragraphs": [
-            "A tiled, shared-memory CUDA implementation of the all-pairs n-body problem with Barnes-Hut as a planned follow-up."
-          ]
-        }
-      ],
-      "gallery": []
+      ]
     },
     {
-      "slug": "scratch-project",
       "title": "scratch-project",
-      "description": "an example non-featured project",
-      "tagline": "Lives on /projects but not on the home page. Copy this entry to add new work.",
-      "featured": false,
-      "status": "archived",
-      "year": "2022",
-      "tech": "python",
-      "thumbnail": null,
-      "hero": null,
-      "links": [],
-      "sections": [
-        {
-          "label": "// notes",
-          "paragraphs": [
-            "This is a stub project to demonstrate how non-featured entries appear on the projects page."
-          ]
-        }
-      ],
-      "gallery": []
+      "description": "an example personal project",
+      "tech": ["python"],
+      "detail": "A short description of the project, what problem it solves, and what you learned building it. Built independently as a side project to explore a new tool or idea. Replace this entry with real project details.",
+      "links": []
     }
   ]
 }
