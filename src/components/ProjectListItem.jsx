@@ -1,33 +1,31 @@
-import { Link } from 'react-router-dom';
-import DefaultThumb from './DefaultThumb.jsx';
-
-function resolveAsset(path) {
-  if (!path) return null;
-  if (/^https?:\/\//i.test(path)) return path;
-  const base = import.meta.env.BASE_URL;
-  return `${base}${path.replace(/^\//, '')}`;
-}
-
 export default function ProjectListItem({ project }) {
-  const href = `/projects/${project.slug}`;
-  const thumbSrc = resolveAsset(project.thumbnail);
-
   return (
-    <li>
-      <Link className="thumb" to={href} aria-label={`${project.title} preview`}>
-        {thumbSrc ? (
-          <img src={thumbSrc} alt={`${project.title} thumbnail`} />
-        ) : (
-          <DefaultThumb slug={project.slug} />
-        )}
-      </Link>
+    <li className="project-item">
       <div className="meta-row">
-        <p className="title">
-          <span className="arrow">→ </span>
-          <Link to={href}>{project.title}</Link>
-        </p>
+        <p className="title">{project.title}</p>
         {project.description && <p className="desc">{project.description}</p>}
       </div>
+
+      {project.tech?.length > 0 && (
+        <ul className="tech-list">
+          {project.tech.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+      )}
+
+      {project.detail && <p className="detail">{project.detail}</p>}
+
+      {project.links?.length > 0 && (
+        <p className="project-links">
+          {project.links.map((link, i) => (
+            <span key={link.key + link.url}>
+              {i > 0 && <span className="sep">·</span>}
+              <a href={link.url}>{link.label ?? link.key}</a>
+            </span>
+          ))}
+        </p>
+      )}
     </li>
   );
 }

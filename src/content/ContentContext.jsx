@@ -25,12 +25,17 @@ export function useContent() {
   return useContext(ContentContext);
 }
 
+export function useAbout() {
+  const { data } = useContent();
+  return data?.about ?? null;
+}
+
+export function useExperience() {
+  const { data } = useContent();
+  return data?.experience ?? [];
+}
+
 export function useProjects() {
   const { data } = useContent();
   return data?.projects ?? [];
-}
-
-export function useProject(slug) {
-  const projects = useProjects();
-  return projects.find((p) => p.slug === slug);
 }
