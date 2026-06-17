@@ -29,7 +29,7 @@
       "title": "2022 Intake Mechanism (FRC 1678)",
       "description": "4-bar linkage mechanism with powered rollers and actuation",
       "tech": ["Onshape", "3D Printing", "Prototyping", "Testing", "Leadership"],
-      "detail": "A from-scratch simulator for articulated robot arms, integrating rigid-body dynamics, contact resolution, and joint limits in a configurable control loop. Built to test motion-planning and control ideas without risking real hardware. Every force, constraint, and integration step is inspectable and logged.",
+      "detail": "Designed and built a powered four-bar linkage intake mechanism with rollers (modeled on FRC Team 1678's 2022 robot), owning the full process from CAD and prototyping through CNC and lathe fabrication, assembly, testing, and BOM. Structured master and reference sketches for modular, robust CAD across iterations, mentored five new members in assembly and CAD, and authored 11 pages of documentation.",
       "links": [
         { "key": "cad release", "label": "cad release", "url": "https://www.citruscircuits.org/cad-code-release" }
       ],
