@@ -67,11 +67,6 @@ function Modal({ entry, onClose }) {
           <>
             <h2 className="modal-title">{entry.title}</h2>
             {entry.description && <p className="modal-subtitle">{entry.description}</p>}
-            {entry.tech?.length > 0 && (
-              <ul className="modal-tech">
-                {entry.tech.map(t => <li key={t}>{t}</li>)}
-              </ul>
-            )}
             {entry.detail && <p className="modal-body">{entry.detail}</p>}
             {entry.links?.length > 0 && (
               <div className="modal-links">
