@@ -10,27 +10,30 @@
   },
   "experience": [
     {
-      "org": "Origami Robotics (Humanoid Robotics Startup, YC W26) ",
+      "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
       "role": "Sensor Hardware Design Engineer",
       "dates": "Summer 2026",
-      "description": "Owned full stack development of tactile sensing."
+      "description": "Owned full stack development of tactile sensing.",
+      "highlight": true
     },
     {
-      "org": "Amazon (LEO, mass satellite constellation for global internet) ",
+      "org": "Amazon (LEO, mass satellite constellation for global internet)",
       "role": "Hardware Development Engineer",
       "dates": "Summer 2025",
-      "description": "Modeling new OCV-SOC and capacity degradation data from internal cell testing to improve algorithm for battery state estimation."
+      "description": "Modeling new OCV-SOC and capacity degradation data from internal cell testing to improve algorithm for battery state estimation.",
+      "highlight": true
     }
   ],
   "projects": [
     {
       "title": "2022 Intake Mechanism (FRC 1678)",
       "description": "4-bar linkage mechanism with powered rollers and actuation",
-      "tech": ["Onshape", "3D Printing", "Prototing", "Testing", "Leadership"],
+      "tech": ["Onshape", "3D Printing", "Prototyping", "Testing", "Leadership"],
       "detail": "A from-scratch simulator for articulated robot arms, integrating rigid-body dynamics, contact resolution, and joint limits in a configurable control loop. Built to test motion-planning and control ideas without risking real hardware. Every force, constraint, and integration step is inspectable and logged.",
       "links": [
         { "key": "cad release", "label": "cad release", "url": "https://www.citruscircuits.org/cad-code-release" }
-      ]
+      ],
+      "highlight": true
     }
   ]
 }
