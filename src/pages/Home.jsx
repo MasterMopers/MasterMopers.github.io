@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useContent } from '../content/ContentContext.jsx';
 import ProjectListItem from '../components/ProjectListItem.jsx';
 
@@ -28,31 +28,55 @@ function MoonIcon() {
 
 function useTheme() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'light');
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
-
   return [theme, setTheme];
+}
+
+function ExperienceEntry({ entry }) {
+  return (
+    <li>
+      <div className="entry-head">
+        <span className="org">{entry.org}</span>
+        {entry.dates && <span className="dates">{entry.dates}</span>}
+      </div>
+      {entry.role && <p className="entry-role">{entry.role}</p>}
+      {entry.description && <p className="desc">{entry.description}</p>}
+    </li>
+  );
 }
 
 export default function Home() {
   const { status, data, error } = useContent();
   const [theme, setTheme] = useTheme();
+  const [revealed, setRevealed] = useState(false);
+  const [filter, setFilter] = useState('highlights');
+  const revealRef = useRef(null);
 
   if (status === 'loading') return <div className="home"><main>Loading…</main></div>;
   if (status === 'error') {
     return (
       <div className="home">
-        <main>
-          <p>Failed to load content: {error?.message}</p>
-        </main>
+        <main><p>Failed to load content: {error?.message}</p></main>
       </div>
     );
   }
 
   const { about, experience, projects } = data;
+
+  const highlights = [
+    ...(experience || []).filter(e => e.highlight).map(e => ({ ...e, _type: 'experience' })),
+    ...(projects  || []).filter(p => p.highlight).map(p => ({ ...p, _type: 'project'    })),
+  ];
+
+  function handleExplore() {
+    setRevealed(true);
+    setTimeout(() => {
+      revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  }
 
   return (
     <div className="home">
@@ -74,11 +98,10 @@ export default function Home() {
               {about.links.map((link, i) => (
                 <span key={link.key}>
                   {i > 0 && <span className="sep">·</span>}
-                  {link.url ? (
-                    <a href={link.url}>{link.label ?? link.url}</a>
-                  ) : (
-                    <span>{link.label}</span>
-                  )}
+                  {link.url
+                    ? <a href={link.url}>{link.label ?? link.url}</a>
+                    : <span>{link.label}</span>
+                  }
                 </span>
               ))}
             </p>
@@ -96,35 +119,62 @@ export default function Home() {
           </div>
         )}
 
-        {experience?.length > 0 && (
-          <section className="line">
-            <p className="label">// experience</p>
-            <ul className="experience">
-              {experience.map((entry, i) => (
-                <li key={i}>
-                  <div className="entry-head">
-                    <span className="org">{entry.org}</span>
-                    {entry.dates && <span className="dates">{entry.dates}</span>}
-                  </div>
-                  {entry.role && <p className="entry-role">{entry.role}</p>}
-                  {entry.description && <p className="desc">{entry.description}</p>}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {projects?.length > 0 && (
-          <section className="line">
-            <p className="label">// projects</p>
-            <ul className="work">
-              {projects.map((p, i) => (
-                <ProjectListItem key={p.title + i} project={p} />
-              ))}
-            </ul>
-          </section>
+        {!revealed && (
+          <div className="explore-btn-wrap line">
+            <button className="explore-btn" onClick={handleExplore} aria-label="Explore more">
+              <span>Explore More</span>
+              <span className="explore-arrow">↓</span>
+            </button>
+          </div>
         )}
       </main>
+
+      {revealed && (
+        <section ref={revealRef} className="explore-section">
+          <div className="explore-inner">
+            <div className="filter-tabs">
+              {['highlights', 'experiences', 'projects'].map(f => (
+                <button
+                  key={f}
+                  className={`filter-btn${filter === f ? ' active' : ''}`}
+                  onClick={() => setFilter(f)}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+
+            {filter === 'highlights' && (
+              <ul className="explore-list">
+                {highlights.length === 0
+                  ? <li className="empty">No highlights set — add <code>highlight: true</code> to entries in content.json.</li>
+                  : highlights.map((item, i) =>
+                      item._type === 'experience'
+                        ? <ExperienceEntry key={i} entry={item} />
+                        : <ProjectListItem key={i} project={item} />
+                    )
+                }
+              </ul>
+            )}
+
+            {filter === 'experiences' && (
+              <ul className="explore-list">
+                {(experience || []).map((entry, i) => (
+                  <ExperienceEntry key={i} entry={entry} />
+                ))}
+              </ul>
+            )}
+
+            {filter === 'projects' && (
+              <ul className="explore-list">
+                {(projects || []).map((p, i) => (
+                  <ProjectListItem key={p.title + i} project={p} />
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
