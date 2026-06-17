@@ -45,40 +45,38 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
   position: fixed;
   top: 1.2rem;
   right: 1.4rem;
-  background: none;
-  border: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--thumb-bg);
+  border: 1px solid var(--rule);
   cursor: pointer;
-  padding: 0;
-  z-index: 100;
-}
-
-.toggle-track {
   display: flex;
   align-items: center;
-  width: 2.8rem;
-  height: 1.5rem;
-  border-radius: 999px;
-  background: var(--rule);
-  border: 1px solid var(--muted);
-  padding: 0.15rem;
+  justify-content: center;
+  padding: 0;
+  z-index: 100;
   transition: background-color 0.4s ease, border-color 0.4s ease;
 }
+.theme-toggle:hover { border-color: var(--accent); }
 
-.toggle-thumb {
-  width: 1.05rem;
-  height: 1.05rem;
-  border-radius: 50%;
-  background: var(--accent);
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s ease;
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  transition: color 0.4s ease;
+  animation: icon-spin-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-[data-theme="light"] .toggle-thumb {
-  transform: translateX(1.25rem);
+@keyframes icon-spin-in {
+  from { transform: rotate(-120deg) scale(0.2); opacity: 0; }
+  to   { transform: rotate(0deg)    scale(1);   opacity: 1; }
 }
 
 /* ---------- Home layout ---------- */
 .home main {
-  max-width: 68rem;
+  max-width: 58rem;
   margin: 0 auto;
   padding: 14vh 1.6rem 7rem;
 }
@@ -91,7 +89,7 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 .line:nth-child(5) { animation-delay: 0.38s; }
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .home h1 {
@@ -101,19 +99,6 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
   margin: 0 0 0.2rem;
 }
 
-.caret {
-  display: inline-block;
-  width: 0.55ch; height: 1.05em;
-  background: var(--accent);
-  margin-left: 0.25ch;
-  transform: translateY(0.15em);
-  animation: blink 1.05s steps(2, start) infinite;
-}
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
-}
-
 .contact-line {
   color: var(--muted);
   font-size: 0.9rem;
@@ -121,15 +106,11 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
   transition: color 0.4s ease;
 }
 .contact-line .sep { color: var(--rule); margin: 0 0.5rem; transition: color 0.4s ease; }
-.bio { margin: 0 0 3rem; max-width: 62rem; }
+
+.bio { margin: 0 0 3rem; max-width: 52rem; }
 
 section { margin-bottom: 2.8rem; }
-.label {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin: 0 0 1.2rem;
-  transition: color 0.4s ease;
-}
+.label { color: var(--muted); font-size: 0.85rem; margin: 0 0 1.2rem; transition: color 0.4s ease; }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
@@ -150,9 +131,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .entry-head .org { font-weight: 500; }
 .entry-head .dates { color: var(--muted); font-size: 0.85rem; transition: color 0.4s ease; }
-
 .entry-role { color: var(--muted); margin: 0.2rem 0 0.4rem; transition: color 0.4s ease; }
-
 .desc { margin: 0; color: var(--muted); transition: color 0.4s ease; }
 
 /* ---------- Project list ---------- */
@@ -181,14 +160,14 @@ ul { list-style: none; margin: 0; padding: 0; }
   transition: color 0.4s ease, border-color 0.4s ease;
 }
 
-.project-item .detail { margin: 0 0 0.6rem; max-width: 66rem; }
+.project-item .detail { margin: 0 0 0.6rem; max-width: 56rem; }
 
 .project-links { margin: 0; font-size: 0.85rem; }
 .project-links .sep { color: var(--rule); margin: 0 0.5rem; transition: color 0.4s ease; }
 
 @media (prefers-reduced-motion: reduce) {
-  .line { animation: none; }
-  .caret { animation: none; opacity: 1; }
-  body, a, .toggle-track, .toggle-thumb, .contact-line, .label,
-  .desc, .entry-role, .dates, .tech-list li, .experience li, .work li { transition: none; }
+  .line, .toggle-icon { animation: none; }
+  body, a, .contact-line, .label, .desc, .entry-role,
+  .entry-head .dates, .tech-list li, .experience li,
+  .work li, .theme-toggle { transition: none; }
 }

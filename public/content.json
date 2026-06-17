@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Felipe Caceres - Fernandez",
-    "bio": "Hey my name is Felipe and I'm working towards making a difference in the world through robotics, specifically humanoid robotics. I'm an undergrad in Computational Physics at Carnegie Mellon University. Physics trains you to think of problems from first principles, and it supplies you with a technical understanding of the world. Computer Science trains you to break down problems into logic, math, and abstraction, and it gives you the knowledge to make machines do cool things. I'm interested in humanoid robotics because they will have the highest level of capability than almost any other thing that humans create. It also forces you to understand many different technical fields and to able to solve complex problems.",
+    "bio": "Hey my name is Felipe and I'm working towards making a difference in the world through robotics, specifically humanoid robotics. I'm an undergrad in Computational Physics at Carnegie Mellon University. Physics teaches you to reason about how the world works from first principles and computer science trains you to analyze problems with math, logic, and abstraction. I'm interested in humanoid robotics because they will have the highest capability of almost anything humans ever create and it forces you to understand different technical fields and to solve complex problems.",
     "links": [
       { "key": "email", "label": "fcaceres[at]andrew[dot]cmu[dot]edu" },
       { "key": "linkedin", "label": "linkedin.com/in/cfelipef", "url": "https://www.linkedin.com/in/cfelipef/" }

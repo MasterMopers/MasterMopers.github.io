@@ -2,8 +2,32 @@ import { useState, useEffect } from 'react';
 import { useContent } from '../content/ContentContext.jsx';
 import ProjectListItem from '../components/ProjectListItem.jsx';
 
+function SunIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
+      <circle cx="7.5" cy="7.5" r="2.5"/>
+      <line x1="7.5" y1="1" x2="7.5" y2="3"/>
+      <line x1="7.5" y1="12" x2="7.5" y2="14"/>
+      <line x1="1" y1="7.5" x2="3" y2="7.5"/>
+      <line x1="12" y1="7.5" x2="14" y2="7.5"/>
+      <line x1="3.2" y1="3.2" x2="4.6" y2="4.6"/>
+      <line x1="10.4" y1="10.4" x2="11.8" y2="11.8"/>
+      <line x1="11.8" y1="3.2" x2="10.4" y2="4.6"/>
+      <line x1="4.6" y1="10.4" x2="3.2" y2="11.8"/>
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M13 10A6 6 0 0 1 5 2a6 6 0 1 0 8 8z"/>
+    </svg>
+  );
+}
+
 function useTheme() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'light');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -37,8 +61,8 @@ export default function Home() {
         onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
         aria-label="Toggle light/dark mode"
       >
-        <span className="toggle-track">
-          <span className="toggle-thumb" />
+        <span key={theme} className="toggle-icon">
+          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </span>
       </button>
 
