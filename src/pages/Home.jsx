@@ -35,9 +35,69 @@ function useTheme() {
   return [theme, setTheme];
 }
 
-function ExperienceEntry({ entry }) {
+function Modal({ entry, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  const isExp = entry._type === 'experience';
+
   return (
-    <li>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+
+        <p className="modal-tag">// {isExp ? 'experience' : 'project'}</p>
+
+        {isExp ? (
+          <>
+            <h2 className="modal-title">{entry.org}</h2>
+            {entry.role  && <p className="modal-subtitle">{entry.role}</p>}
+            {entry.dates && <p className="modal-dates">{entry.dates}</p>}
+            {entry.description && <p className="modal-body">{entry.description}</p>}
+            {entry.detail      && <p className="modal-body">{entry.detail}</p>}
+          </>
+        ) : (
+          <>
+            <h2 className="modal-title">{entry.title}</h2>
+            {entry.description && <p className="modal-subtitle">{entry.description}</p>}
+            {entry.tech?.length > 0 && (
+              <ul className="modal-tech">
+                {entry.tech.map(t => <li key={t}>{t}</li>)}
+              </ul>
+            )}
+            {entry.detail && <p className="modal-body">{entry.detail}</p>}
+            {entry.links?.length > 0 && (
+              <div className="modal-links">
+                {entry.links.map(link => (
+                  <a key={link.key} href={link.url}>{link.label ?? link.key}</a>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        {entry.photos?.length > 0 && (
+          <div className="modal-photos">
+            {entry.photos.map((photo, i) => (
+              <img key={i} src={photo.src} alt={photo.alt ?? ''} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ExperienceEntry({ entry, onClick }) {
+  return (
+    <li onClick={onClick}>
       <div className="entry-head">
         <span className="org">{entry.org}</span>
         {entry.dates && <span className="dates">{entry.dates}</span>}
@@ -53,6 +113,7 @@ export default function Home() {
   const [theme, setTheme] = useTheme();
   const [revealed, setRevealed] = useState(false);
   const [filter, setFilter] = useState('highlights');
+  const [selectedEntry, setSelectedEntry] = useState(null);
   const revealRef = useRef(null);
 
   if (status === 'loading') return <div className="home"><main>Loading…</main></div>;
@@ -150,8 +211,8 @@ export default function Home() {
                   ? <li className="empty">No highlights set — add <code>highlight: true</code> to entries in content.json.</li>
                   : highlights.map((item, i) =>
                       item._type === 'experience'
-                        ? <ExperienceEntry key={i} entry={item} />
-                        : <ProjectListItem key={i} project={item} />
+                        ? <ExperienceEntry key={i} entry={item} onClick={() => setSelectedEntry(item)} />
+                        : <ProjectListItem key={i} project={item} onClick={() => setSelectedEntry(item)} />
                     )
                 }
               </ul>
@@ -160,7 +221,11 @@ export default function Home() {
             {filter === 'experiences' && (
               <ul className="explore-list">
                 {(experience || []).map((entry, i) => (
-                  <ExperienceEntry key={i} entry={entry} />
+                  <ExperienceEntry
+                    key={i}
+                    entry={entry}
+                    onClick={() => setSelectedEntry({ ...entry, _type: 'experience' })}
+                  />
                 ))}
               </ul>
             )}
@@ -168,12 +233,20 @@ export default function Home() {
             {filter === 'projects' && (
               <ul className="explore-list">
                 {(projects || []).map((p, i) => (
-                  <ProjectListItem key={p.title + i} project={p} />
+                  <ProjectListItem
+                    key={p.title + i}
+                    project={p}
+                    onClick={() => setSelectedEntry({ ...p, _type: 'project' })}
+                  />
                 ))}
               </ul>
             )}
           </div>
         </section>
+      )}
+
+      {selectedEntry && (
+        <Modal entry={selectedEntry} onClose={() => setSelectedEntry(null)} />
       )}
     </div>
   );
