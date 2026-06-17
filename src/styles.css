@@ -121,7 +121,7 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 }
 
 .bio-photo-wrap {
-  flex: 0 0 9rem;
+  flex: 0 0 16rem;
   border-radius: 3px;
   border: 1px solid var(--rule);
   overflow: hidden;
