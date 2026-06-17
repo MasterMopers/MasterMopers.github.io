@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
 import { useContent } from '../content/ContentContext.jsx';
 import ProjectListItem from '../components/ProjectListItem.jsx';
 
+function useTheme() {
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  return [theme, setTheme];
+}
+
 export default function Home() {
   const { status, data, error } = useContent();
+  const [theme, setTheme] = useTheme();
 
   if (status === 'loading') return <div className="home"><main>Loading…</main></div>;
   if (status === 'error') {
@@ -19,10 +32,19 @@ export default function Home() {
 
   return (
     <div className="home">
+      <button
+        className="theme-toggle"
+        onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
+        aria-label="Toggle light/dark mode"
+      >
+        <span className="toggle-track">
+          <span className="toggle-thumb" />
+        </span>
+      </button>
+
       <main>
         <header className="line">
           <h1>{about.name}</h1>
-          {about.identity && <p className="role">{about.identity}</p>}
           {about.links?.length > 0 && (
             <p className="contact-line">
               {about.links.map((link, i) => (
