@@ -86,7 +86,14 @@ export default function Home() {
         </header>
 
         {about.bio && (
-          <p className="bio line" dangerouslySetInnerHTML={{ __html: about.bio }} />
+          <div className="bio-wrapper line">
+            <p className="bio-text" dangerouslySetInnerHTML={{ __html: about.bio }} />
+            {about.photo && (
+              <div className="bio-photo-wrap">
+                <img src={about.photo} alt="Felipe" />
+              </div>
+            )}
+          </div>
         )}
 
         {experience?.length > 0 && (
