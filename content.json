@@ -13,7 +13,7 @@
       "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
       "role": "Sensor Hardware Design Engineer",
       "dates": "Summer 2026",
-      "description": "Owned full stack development of tactile sensing.",
+      "description": "Owned full-stack development of a piezoresistive FSR tactile sensing matrix for a human data-collection glove and robot hand, designing 9 FPC sensors from scratch in KiCad down to 0.2mm resolution and engineering the full stimulus-to-visualization pipeline.",
       "highlight": true
     },
     {
