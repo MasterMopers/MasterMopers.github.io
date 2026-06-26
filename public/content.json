@@ -1,11 +1,12 @@
 {
   "about": {
     "name": "Felipe Caceres - Fernandez",
-    "photo": "/photo.png",
+    "photo": "/felipe_photo.png",
     "bio": "Hey my name is Felipe and I'm working towards making a difference in the world through <strong>humanoid robotics</strong>. I'm an undergrad in <strong>Computational Physics at Carnegie Mellon University</strong>. Physics teaches you to reason about how the world works from first principles and computer science trains you to analyze problems with math, logic, and abstraction. I'm interested in humanoid robotics because they will have the highest capability of almost anything humans ever create and it forces you to understand different technical fields and to solve complex problems.",
     "links": [
       { "key": "email", "label": "fcaceres[at]andrew[dot]cmu[dot]edu" },
-      { "key": "linkedin", "label": "linkedin.com/in/cfelipef", "url": "https://www.linkedin.com/in/cfelipef/" }
+      { "key": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/cfelipef/" },
+      { "key": "github", "label": "GitHub", "url": "https://github.com/MasterMopers" }
     ]
   },
   "experience": [
@@ -13,27 +14,60 @@
       "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
       "role": "Sensor Hardware Design Engineer",
       "dates": "Summer 2026",
+      "one_liner": "Owned full-stack development of tactile sensing for dextrous manipulation",
       "description": "Owned full-stack development of a piezoresistive FSR tactile sensing matrix for a human data-collection glove and robot hand, designing 9 FPC sensors from scratch in KiCad down to 0.2mm resolution and engineering the full stimulus-to-visualization pipeline.",
+      "photos": [{ "src": "/origami_robotics.png", "alt": "Origami Robotics" }],
       "highlight": true
     },
     {
-      "org": "Amazon (LEO, mass satellite constellation for global internet)",
+      "org": "Amazon (mass satellite constellation for global internet)",
       "role": "Hardware Development Engineer",
       "dates": "Summer 2025",
+      "one_liner": "Modeled battery data from internal cell testing to improve state estimation algorithms",
       "description": "Modeling new OCV-SOC and capacity degradation data from internal cell testing to improve algorithm for battery state estimation.",
+      "photos": [{ "src": "/project_kuiper.jpg", "alt": "Amazon" }],
       "highlight": true
+    },
+    {
+      "org": "FIRST Robotics Competition Team 1678 Citrus Circuits",
+      "role": "Mechanical Designer",
+      "dates": "2020 - 2022",
+      "one_liner": "Led full-stack development of intake mechanism for 2022 game 'Rapid React'",
+      "description": "Designed and built a powered four-bar linkage intake mechanism with rollers (modeled on FRC Team 1678's 2022 robot), owning the full process from CAD and prototyping through CNC and lathe fabrication, assembly, testing, and BOM. Structured master and reference sketches for modular, robust CAD across iterations, mentored five new members in assembly and CAD, and authored 11 pages of documentation.",
+      "links": [
+        { "key": "cad release", "label": "cad release", "url": "https://www.citruscircuits.org/cad-code-release" }
+      ],
+      "photos": [{ "src": "/citrus.jpeg", "alt": "Intake Mechanism" }],
+      "highlight": false
+    },
+    {
+      "org": "Davis Engineering Team",
+      "role": "Founder, President, & Mechanical Designer",
+      "dates": "Spring 2022 - Spring 2023",
+      "one_liner": "Built a team of 5 students, acquired sponsors, built robots, and hosted community events",
+      "description": "Remote controlled robot and autonomous propeller boat.",
+      "photos": [{ "src": "/davis_engineering.png", "alt": "Davis Engineering Team" }],
+      "highlight": false
     }
   ],
   "projects": [
     {
-      "title": "2022 Intake Mechanism (FRC 1678)",
-      "description": "4-bar linkage mechanism with powered rollers and actuation",
-      "tech": ["Onshape", "3D Printing", "Prototyping", "Testing", "Leadership"],
-      "detail": "Designed and built a powered four-bar linkage intake mechanism with rollers (modeled on FRC Team 1678's 2022 robot), owning the full process from CAD and prototyping through CNC and lathe fabrication, assembly, testing, and BOM. Structured master and reference sketches for modular, robust CAD across iterations, mentored five new members in assembly and CAD, and authored 11 pages of documentation.",
-      "links": [
-        { "key": "cad release", "label": "cad release", "url": "https://www.citruscircuits.org/cad-code-release" }
-      ],
-      "highlight": true
+      "title": "Cassette Themed Room w/ a Life-Sized Working Cassette",
+      "dates": "Spring 2026",
+      "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
+      "one_liner": "Cassette themed room for music technology throughout the decades",
+      "description": "Cool booth room.",
+      "photos": [{ "src": "/giant_cassette.png", "alt": "Giant Cassette" }],
+      "highlight": false
+    },
+    {
+      "title": "Teassure Chest w/ Lasers",
+      "dates": "Spring 2025",
+      "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
+      "one_liner": "Indiana Jones themed treasure chest",
+      "description": "Cool booth craft.",
+      "photos": [{ "src": "/treasure_chest.png", "alt": "Tresure Chest" }],
+      "highlight": false
     }
   ]
 }
