@@ -147,7 +147,7 @@ function ExperienceEntry({ entry, tag, highlight, onClick }) {
   );
 }
 
-const FILTERS = ['highlights', 'experiences', 'projects', 'education', 'more about me'];
+const FILTERS = ['highlights', 'experiences', 'projects', 'education', 'hackathons', 'more about me'];
 const BEYOND_STEM_FILTERS = new Set(['experiences', 'projects']);
 
 export default function Home() {
@@ -168,7 +168,7 @@ export default function Home() {
     );
   }
 
-  const { about, about_me, experience, projects, education } = data;
+  const { about, about_me, experience, projects, education, hackathons } = data;
 
   const highlights = sortByDate([
     ...(experience || []).filter(e => e.highlight).map(e => ({ ...e, _type: 'experience' })),
@@ -251,26 +251,27 @@ export default function Home() {
         <section ref={revealRef} className="explore-section">
           <div className="explore-inner">
             <div className="filter-tabs">
-              <div className="filter-tabs-left">
-                {FILTERS.map(f => (
-                  <button
-                    key={f}
-                    className={`filter-btn${filter === f ? ' active' : ''}`}
-                    onClick={() => setFilter(f)}
-                  >
-                    {f}
-                  </button>
-                ))}
-              </div>
-              {BEYOND_STEM_FILTERS.has(filter) && (
+              {FILTERS.map(f => (
+                <button
+                  key={f}
+                  className={`filter-btn${filter === f ? ' active' : ''}`}
+                  onClick={() => setFilter(f)}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+
+            {BEYOND_STEM_FILTERS.has(filter) && (
+              <div className="beyond-stem-row">
                 <label className="beyond-stem-toggle" aria-label="Show Beyond STEM entries">
-                  <span className="beyond-stem-label">Beyond STEM</span>
                   <span className={`toggle-track${beyondStem ? ' active' : ''}`} onClick={() => setBeyondStem(s => !s)}>
                     <span className="toggle-thumb" />
                   </span>
+                  <span className="beyond-stem-label">Beyond STEM</span>
                 </label>
-              )}
-            </div>
+              </div>
+            )}
 
             {filter === 'highlights' && (
               <ul className="explore-list">
@@ -323,6 +324,19 @@ export default function Home() {
                     entry={{ ...edu, org: edu.school, role: edu.credential }}
                     tag="education"
                     onClick={() => setSelectedEntry({ ...edu, org: edu.school, role: edu.credential, _type: 'experience' })}
+                  />
+                ))}
+              </ul>
+            )}
+
+            {filter === 'hackathons' && (
+              <ul className="explore-list timeline-list">
+                {sortByDate(hackathons || []).map((h, i) => (
+                  <ExperienceEntry
+                    key={h.name + i}
+                    entry={{ ...h, org: h.name, role: h.project }}
+                    tag="hackathon"
+                    onClick={() => setSelectedEntry({ ...h, org: h.name, role: h.project, _type: 'experience' })}
                   />
                 ))}
               </ul>

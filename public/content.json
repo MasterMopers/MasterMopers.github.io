@@ -120,14 +120,25 @@
       "beyond_stem": false
     }
   ],
+  "hackathons": [
+    {
+      "name": "Venture Hacks Felicis Ventures x CMU",
+      "project": "AI powered full stack robotics development environment",
+      "dates": "Spring 2026",
+      "one_liner": "A development tool spearheading the 'generalized' robotics engineer era",
+      "description": "Cool robotics thing...",
+      "photos": [{ "src": "/felicis.JPEG", "alt": "Vencture Hacks" }],
+      "highlight": false
+    }
+  ],
   "education": [
     {
       "school": "Carnegie Mellon University",
       "credential": "B.S. Computational Physics from the Mellon College of Science",
-      "dates": "2024 - 2028",
+      "dates": "2024 - pres",
       "one_liner": "Studying how the universe works, then simulating it",
       "description": "Relevant coursework: Electromagnetism (33-142), Data Structures and Algorithms (15-122), Linear Algebra and Vector Calculus (21-254), Modern Physics (33-211), Sensors and Actuators (24-251), Experimental Physics (33-104), Manual Machining (24-200), AI Venture Studio (11-681), Fundamentals of CS (15-112), 2D Mechanics (24-261)",
-      "photos": [],
+      "photos": [{ "src": "/cmu.png", "alt": "CMU" }],
       "highlight": false
     },
     {
@@ -136,7 +147,7 @@
       "dates": "2020 - 2023",
       "one_liner": "Davis Joint Unified School District",
       "description": "My favorite classes where AP Physics and Race and Social Justice",
-      "photos": [],
+      "photos": [{ "src": "/davis_high.JPG", "alt": "Davis Senior High School" }],
       "highlight": false
     }
   ]
