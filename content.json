@@ -9,6 +9,7 @@
       { "key": "github", "label": "GitHub", "url": "https://github.com/MasterMopers" }
     ]
   },
+  "about_me": "More about me...",
   "experience": [
     {
       "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
@@ -48,6 +49,26 @@
       "description": "Remote controlled robot and autonomous propeller boat.",
       "photos": [{ "src": "/davis_engineering.png", "alt": "Davis Engineering Team" }],
       "highlight": false
+    },
+    {
+      "org": "UC Davis Student Health and Services",
+      "role": "Videoographer, Screen Writer, & Director",
+      "dates": "Summer 2024",
+      "one_liner": "Created my own short film about mental health awareness on contract",
+      "description": "Cool video stuff...",
+      "photos": [{ "src": "/ucd_film.png", "alt": "UCD Film" }],
+      "highlight": false,
+      "beyond_stem": true
+    },
+    {
+      "org": "Freelance Work",
+      "role": "Product Designer",
+      "dates": "2020 - 2022",
+      "one_liner": "Designed products for people and small brands on the internet",
+      "description": "Cool product design stuff...",
+      "photos": [{ "src": "/product_design.png", "alt": "Product Design" }],
+      "highlight": false,
+      "beyond_stem": false
     }
   ],
   "projects": [
@@ -56,17 +77,56 @@
       "dates": "Spring 2026",
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
       "one_liner": "Cassette themed room for music technology throughout the decades",
-      "description": "Cool booth room.",
+      "description": "Cool booth room...",
       "photos": [{ "src": "/giant_cassette.png", "alt": "Giant Cassette" }],
       "highlight": false
     },
     {
-      "title": "Teassure Chest w/ Lasers",
+      "title": "Treasure Chest w/ Lasers",
       "dates": "Spring 2025",
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
       "one_liner": "Indiana Jones themed treasure chest",
-      "description": "Cool booth craft.",
-      "photos": [{ "src": "/treasure_chest.png", "alt": "Tresure Chest" }],
+      "description": "Cool booth craft...",
+      "photos": [{ "src": "/treasure_chest.png", "alt": "Treasure Chest" }],
+      "highlight": false
+    },
+    {
+      "title": "Med-gami",
+      "dates": "Summer 2021",
+      "affiliation": "Product Development Project w/ Bayha Group",
+      "one_liner": "A concept design for a low cost wrist and ankle splint",
+      "description": "Cool idea thing...",
+      "photos": [{ "src": "/medgami_image.png", "alt": "Med-gami" }],
+      "highlight": false
+    },
+    {
+      "title": "Shortfilm Production Crew",
+      "dates": "April 2024",
+      "affiliation": "NYU Senior Student Thesis Film",
+      "one_liner": "Spent a week shooting a thriller short film all over NYC",
+      "description": "Cool film stuff...",
+      "photos": [{ "src": "/nyu_film.JPG", "alt": "NYU Film" }],
+      "highlight": false,
+      "beyond_stem": true
+    }
+  ],
+  "education": [
+    {
+      "school": "Carnegie Mellon University",
+      "credential": "B.S. Computational Physics from the Mellon College of Science",
+      "dates": "2024 - 2028",
+      "one_liner": "Studying how the universe works, then simulating it",
+      "description": "Relevant coursework: Electromagnetism (33-142), Data Structures and Algorithms (15-122), Linear Algebra and Vector Calculus (21-254), Modern Physics (33-211), Sensors and Actuators (24-251), Experimental Physics (33-104), Manual Machining (24-200), AI Venture Studio (11-681), Fundamentals of CS (15-112), 2D Mechanics (24-261)",
+      "photos": [],
+      "highlight": false
+    },
+    {
+      "school": "Davis Senior High School",
+      "credential": "High School Diploma",
+      "dates": "2020 - 2023",
+      "one_liner": "Davis Joint Unified School District",
+      "description": "My favorite classes where AP Physics and Race and Social Justice",
+      "photos": [],
       "highlight": false
     }
   ]
