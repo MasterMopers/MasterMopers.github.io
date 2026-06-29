@@ -147,11 +147,15 @@ function ExperienceEntry({ entry, tag, highlight, onClick }) {
   );
 }
 
+const FILTERS = ['highlights', 'experiences', 'projects', 'education', 'more about me'];
+const BEYOND_STEM_FILTERS = new Set(['experiences', 'projects']);
+
 export default function Home() {
   const { status, data, error } = useContent();
   const [theme, setTheme] = useTheme();
   const [revealed, setRevealed] = useState(false);
   const [filter, setFilter] = useState('highlights');
+  const [beyondStem, setBeyondStem] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState(null);
   const revealRef = useRef(null);
 
@@ -164,12 +168,16 @@ export default function Home() {
     );
   }
 
-  const { about, experience, projects } = data;
+  const { about, about_me, experience, projects, education } = data;
 
   const highlights = sortByDate([
     ...(experience || []).filter(e => e.highlight).map(e => ({ ...e, _type: 'experience' })),
     ...(projects  || []).filter(p => p.highlight).map(p => ({ ...p, _type: 'project'    })),
   ]);
+
+  function filterBeyondStem(arr) {
+    return beyondStem ? arr : arr.filter(e => !e.beyond_stem);
+  }
 
   function handleExplore() {
     setRevealed(true);
@@ -243,15 +251,25 @@ export default function Home() {
         <section ref={revealRef} className="explore-section">
           <div className="explore-inner">
             <div className="filter-tabs">
-              {['highlights', 'experiences', 'projects'].map(f => (
-                <button
-                  key={f}
-                  className={`filter-btn${filter === f ? ' active' : ''}`}
-                  onClick={() => setFilter(f)}
-                >
-                  {f}
-                </button>
-              ))}
+              <div className="filter-tabs-left">
+                {FILTERS.map(f => (
+                  <button
+                    key={f}
+                    className={`filter-btn${filter === f ? ' active' : ''}`}
+                    onClick={() => setFilter(f)}
+                  >
+                    {f}
+                  </button>
+                ))}
+              </div>
+              {BEYOND_STEM_FILTERS.has(filter) && (
+                <label className="beyond-stem-toggle" aria-label="Show Beyond STEM entries">
+                  <span className="beyond-stem-label">Beyond STEM</span>
+                  <span className={`toggle-track${beyondStem ? ' active' : ''}`} onClick={() => setBeyondStem(s => !s)}>
+                    <span className="toggle-thumb" />
+                  </span>
+                </label>
+              )}
             </div>
 
             {filter === 'highlights' && (
@@ -273,11 +291,11 @@ export default function Home() {
 
             {filter === 'experiences' && (
               <ul className="explore-list timeline-list">
-                {sortByDate(experience || []).map((entry, i) => (
+                {sortByDate(filterBeyondStem(experience || [])).map((entry, i) => (
                   <ExperienceEntry
                     key={i}
                     entry={entry}
-                    tag="experience"
+                    tag={entry.beyond_stem ? 'beyond stem experience' : 'experience'}
                     onClick={() => setSelectedEntry({ ...entry, _type: 'experience' })}
                   />
                 ))}
@@ -286,15 +304,34 @@ export default function Home() {
 
             {filter === 'projects' && (
               <ul className="explore-list timeline-list">
-                {sortByDate(projects || []).map((p, i) => (
+                {sortByDate(filterBeyondStem(projects || [])).map((p, i) => (
                   <ExperienceEntry
                     key={p.title + i}
                     entry={{ ...p, org: p.title, role: p.affiliation }}
-                    tag="project"
+                    tag={p.beyond_stem ? 'beyond stem project' : 'project'}
                     onClick={() => setSelectedEntry({ ...p, _type: 'project' })}
                   />
                 ))}
               </ul>
+            )}
+
+            {filter === 'education' && (
+              <ul className="explore-list timeline-list">
+                {sortByDate(education || []).map((edu, i) => (
+                  <ExperienceEntry
+                    key={edu.school + i}
+                    entry={{ ...edu, org: edu.school, role: edu.credential }}
+                    tag="education"
+                    onClick={() => setSelectedEntry({ ...edu, org: edu.school, role: edu.credential, _type: 'experience' })}
+                  />
+                ))}
+              </ul>
+            )}
+
+            {filter === 'more about me' && (
+              <div className="about-me-block">
+                <p>{about_me}</p>
+              </div>
             )}
           </div>
         </section>
