@@ -108,6 +108,16 @@
       "photos": [{ "src": "/nyu_film.JPG", "alt": "NYU Film" }],
       "highlight": false,
       "beyond_stem": true
+    },
+    {
+      "title": "Robotic Gripper & Arm Links",
+      "dates": "Spring 2026",
+      "affiliation": "Personal",
+      "one_liner": "Designed and wired this rough robotic arm prototype in a week to learn more.",
+      "description": "Cool robot stuff...",
+      "photos": [{ "src": "/robot_gripper.png", "alt": "Robot Gripper" }],
+      "highlight": false,
+      "beyond_stem": false
     }
   ],
   "education": [
