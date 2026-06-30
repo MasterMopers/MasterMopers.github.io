@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Felipe Caceres - Fernandez",
-    "photo": "/felipe_photo.png",
+    "photo": "/felipe_photo.webp",
     "bio": "Hey my name is Felipe and I'm working towards making a difference in the world through <strong>humanoid robotics</strong>. I'm an undergrad in <strong>Computational Physics at Carnegie Mellon University</strong>. Physics teaches you to reason about how the world works from first principles and computer science trains you to analyze problems with math, logic, and abstraction. I'm drawn to humanoid robotics because it pushes the limits of what we can build and forces you to problem solve in many different technical fields.",
     "links": [
       { "key": "email", "label": "fcaceres[at]andrew[dot]cmu[dot]edu" },
@@ -17,7 +17,7 @@
       "dates": "Summer 2026",
       "one_liner": "Owned full-stack development of tactile sensing for dextrous manipulation",
       "description": "Owned full-stack development of a piezoresistive FSR tactile sensing matrix for a human data-collection glove and robot hand, designing 9 FPC sensors from scratch in KiCad down to 0.2mm resolution and engineering the full stimulus-to-visualization pipeline.",
-      "photos": [{ "src": "/origami_robotics.png", "alt": "Origami Robotics" }],
+      "photos": [{ "src": "/origami_robotics.webp", "alt": "Origami Robotics" }],
       "highlight": true
     },
     {
@@ -26,7 +26,7 @@
       "dates": "Summer 2025",
       "one_liner": "Modeled battery data from internal cell testing to improve state estimation algorithms",
       "description": "Modeling new OCV-SOC and capacity degradation data from internal cell testing to improve algorithm for battery state estimation.",
-      "photos": [{ "src": "/project_kuiper.jpg", "alt": "Amazon" }],
+      "photos": [{ "src": "/project_kuiper.webp", "alt": "Amazon" }],
       "highlight": true
     },
     {
@@ -38,7 +38,7 @@
       "links": [
         { "key": "cad release", "label": "cad release", "url": "https://www.citruscircuits.org/cad-code-release" }
       ],
-      "photos": [{ "src": "/citrus.jpeg", "alt": "Intake Mechanism" }],
+      "photos": [{ "src": "/citrus.webp", "alt": "Intake Mechanism" }],
       "highlight": false
     },
     {
@@ -47,7 +47,7 @@
       "dates": "Spring 2022 - Spring 2023",
       "one_liner": "Built a team of 5 students, acquired sponsors, built robots, and hosted community events",
       "description": "Remote controlled robot and autonomous propeller boat.",
-      "photos": [{ "src": "/davis_engineering.png", "alt": "Davis Engineering Team" }],
+      "photos": [{ "src": "/davis_engineering.webp", "alt": "Davis Engineering Team" }],
       "highlight": false
     },
     {
@@ -56,17 +56,17 @@
       "dates": "Summer 2024",
       "one_liner": "Created my own short film about mental health awareness on contract",
       "description": "Cool video stuff...",
-      "photos": [{ "src": "/ucd_film.png", "alt": "UCD Film" }],
+      "photos": [{ "src": "/ucd_film.webp", "alt": "UCD Film" }],
       "highlight": false,
       "beyond_stem": true
     },
     {
       "org": "Freelance Work",
       "role": "Product Designer",
-      "dates": "2020 - 2022",
+      "dates": "2019 - 2022",
       "one_liner": "Designed products for people and small brands on the internet",
       "description": "Cool product design stuff...",
-      "photos": [{ "src": "/product_design.png", "alt": "Product Design" }],
+      "photos": [{ "src": "/product_design.webp", "alt": "Product Design" }],
       "highlight": false,
       "beyond_stem": false
     }
@@ -78,7 +78,7 @@
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
       "one_liner": "Cassette themed room for music technology throughout the decades",
       "description": "Cool booth room...",
-      "photos": [{ "src": "/giant_cassette.png", "alt": "Giant Cassette" }],
+      "photos": [{ "src": "/giant_cassette.webp", "alt": "Giant Cassette" }],
       "highlight": false
     },
     {
@@ -87,7 +87,7 @@
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
       "one_liner": "Indiana Jones themed treasure chest",
       "description": "Cool booth craft...",
-      "photos": [{ "src": "/treasure_chest.png", "alt": "Treasure Chest" }],
+      "photos": [{ "src": "/treasure_chest.webp", "alt": "Treasure Chest" }],
       "highlight": false
     },
     {
@@ -96,7 +96,7 @@
       "affiliation": "Product Development Project w/ Bayha Group",
       "one_liner": "A concept design for a low cost wrist and ankle splint",
       "description": "Cool idea thing...",
-      "photos": [{ "src": "/medgami_image.png", "alt": "Med-gami" }],
+      "photos": [{ "src": "/medgami_image.webp", "alt": "Med-gami" }],
       "highlight": false
     },
     {
@@ -105,7 +105,7 @@
       "affiliation": "NYU Senior Student Thesis Film",
       "one_liner": "Spent a week shooting a thriller short film all over NYC",
       "description": "Cool film stuff...",
-      "photos": [{ "src": "/nyu_film.JPG", "alt": "NYU Film" }],
+      "photos": [{ "src": "/nyu_film.webp", "alt": "NYU Film" }],
       "highlight": false,
       "beyond_stem": true
     },
@@ -115,7 +115,7 @@
       "affiliation": "Personal",
       "one_liner": "Designed and wired this rough robotic arm prototype in a week to learn more.",
       "description": "Cool robot stuff...",
-      "photos": [{ "src": "/robot_gripper.PNG", "alt": "Robot Gripper" }],
+      "photos": [{ "src": "/robot_gripper.webp", "alt": "Robot Gripper" }],
       "highlight": false,
       "beyond_stem": false
     }
@@ -127,18 +127,18 @@
       "dates": "Spring 2026",
       "one_liner": "A development tool spearheading the 'generalized' robotics engineer era",
       "description": "Cool robotics thing...",
-      "photos": [{ "src": "/felicis.JPEG", "alt": "Vencture Hacks" }],
+      "photos": [{ "src": "/felicis.webp", "alt": "Vencture Hacks" }],
       "highlight": false
     }
   ],
   "education": [
     {
       "school": "Carnegie Mellon University",
-      "credential": "B.S. Computational Physics from the Mellon College of Science",
+      "credential": "B.S. Computational Physics",
       "dates": "2024 - pres",
       "one_liner": "Studying how the universe works, then simulating it",
       "description": "Relevant coursework: Electromagnetism (33-142), Data Structures and Algorithms (15-122), Linear Algebra and Vector Calculus (21-254), Modern Physics (33-211), Sensors and Actuators (24-251), Experimental Physics (33-104), Manual Machining (24-200), AI Venture Studio (11-681), Fundamentals of CS (15-112), 2D Mechanics (24-261)",
-      "photos": [{ "src": "/cmu.png", "alt": "CMU" }],
+      "photos": [{ "src": "/cmu.webp", "alt": "CMU" }],
       "highlight": false
     },
     {
@@ -147,7 +147,7 @@
       "dates": "2020 - 2023",
       "one_liner": "Davis Joint Unified School District",
       "description": "My favorite classes where AP Physics and Race and Social Justice",
-      "photos": [{ "src": "/davis_high.JPG", "alt": "Davis Senior High School" }],
+      "photos": [{ "src": "/davis_high.webp", "alt": "Davis Senior High School" }],
       "highlight": false
     }
   ]

@@ -335,13 +335,13 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 /* ---------- Timeline ---------- */
 .timeline-list {
   position: relative;
-  padding-left: 9rem;
+  padding-left: 12rem;
 }
 
 .timeline-list::before {
   content: '';
   position: absolute;
-  left: 8rem;
+  left: 11rem;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -371,8 +371,8 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 .timeline-list li[data-date]::after {
   content: attr(data-date);
   position: absolute;
-  left: -8rem;
-  width: 7rem;
+  left: -11rem;
+  width: 9.5rem;
   top: 1rem;
   text-align: right;
   font-size: 0.72rem;
@@ -594,10 +594,21 @@ ul { list-style: none; margin: 0; padding: 0; }
   border: 1px solid var(--rule);
 }
 
+/* ---------- Beyond STEM flash ---------- */
+@keyframes beyond-stem-flash-bg {
+  0%   { background-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+  100% { background-color: transparent; }
+}
+
+.beyond-stem-flash {
+  animation: beyond-stem-flash-bg 6s ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .line, .toggle-icon, .explore-btn, .explore-arrow, .explore-section { animation: none; }
   body, a, .contact-line, .label, .desc, .entry-role,
   .entry-head .dates, .tech-list li, .theme-toggle,
   .bio-photo-wrap, .explore-section, .filter-tabs,
   .filter-btn, .explore-list li { transition: none; }
+  .beyond-stem-flash { animation: none; }
 }

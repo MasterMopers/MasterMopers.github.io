@@ -122,11 +122,12 @@ function sortByDate(arr) {
   return [...arr].sort((a, b) => parseDateForSort(b.dates) - parseDateForSort(a.dates));
 }
 
-function ExperienceEntry({ entry, tag, highlight, onClick }) {
+function ExperienceEntry({ entry, tag, highlight, onClick, flashKey = 0 }) {
+  const flash = entry.beyond_stem && flashKey > 0;
   const photo = entry.photos?.[0];
   return (
     <li
-      className={`entry-row${highlight ? ' entry-highlight' : ''}`}
+      className={`entry-row${highlight ? ' entry-highlight' : ''}${flash ? ' beyond-stem-flash' : ''}`}
       data-date={entry.dates ?? undefined}
       onClick={onClick}
     >
@@ -156,6 +157,7 @@ export default function Home() {
   const [revealed, setRevealed] = useState(false);
   const [filter, setFilter] = useState('highlights');
   const [beyondStem, setBeyondStem] = useState(false);
+  const [beyondStemFlash, setBeyondStemFlash] = useState(0);
   const [selectedEntry, setSelectedEntry] = useState(null);
   const revealRef = useRef(null);
 
@@ -265,7 +267,7 @@ export default function Home() {
             {BEYOND_STEM_FILTERS.has(filter) && (
               <div className="beyond-stem-row">
                 <label className="beyond-stem-toggle" aria-label="Show Beyond STEM entries">
-                  <span className={`toggle-track${beyondStem ? ' active' : ''}`} onClick={() => setBeyondStem(s => !s)}>
+                  <span className={`toggle-track${beyondStem ? ' active' : ''}`} onClick={() => { const next = !beyondStem; setBeyondStem(next); if (next) setBeyondStemFlash(f => f + 1); }}>
                     <span className="toggle-thumb" />
                   </span>
                   <span className="beyond-stem-label">Beyond STEM</span>
@@ -294,9 +296,10 @@ export default function Home() {
               <ul className="explore-list timeline-list">
                 {sortByDate(filterBeyondStem(experience || [])).map((entry, i) => (
                   <ExperienceEntry
-                    key={i}
+                    key={entry.beyond_stem ? `${i}-${beyondStemFlash}` : i}
                     entry={entry}
                     tag={entry.beyond_stem ? 'beyond stem experience' : 'experience'}
+                    flashKey={beyondStemFlash}
                     onClick={() => setSelectedEntry({ ...entry, _type: 'experience' })}
                   />
                 ))}
@@ -307,9 +310,10 @@ export default function Home() {
               <ul className="explore-list timeline-list">
                 {sortByDate(filterBeyondStem(projects || [])).map((p, i) => (
                   <ExperienceEntry
-                    key={p.title + i}
+                    key={p.beyond_stem ? `${p.title}-${i}-${beyondStemFlash}` : p.title + i}
                     entry={{ ...p, org: p.title, role: p.affiliation }}
                     tag={p.beyond_stem ? 'beyond stem project' : 'project'}
+                    flashKey={beyondStemFlash}
                     onClick={() => setSelectedEntry({ ...p, _type: 'project' })}
                   />
                 ))}
