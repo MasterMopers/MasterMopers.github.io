@@ -612,3 +612,47 @@ ul { list-style: none; margin: 0; padding: 0; }
   .filter-btn, .explore-list li { transition: none; }
   .beyond-stem-flash { animation: none; }
 }
+
+/* ---------- Mobile overrides (final, wins by source order) ---------- */
+@media (max-width: 540px) {
+  body { font-size: 13px; }
+
+  /* A) Hero fits one screen, no toolbar clipping */
+  .home main {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 3.5rem 1.4rem 1.5rem;
+  }
+  .contact-line { margin-bottom: 1.2rem; }
+  .bio-wrapper {
+    margin-bottom: 1.2rem;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .bio-photo-wrap {
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 120px;
+  }
+  .bio-photo-wrap img { object-position: center 35%; }
+
+  /* D) Tab bar affordance */
+  .filter-btn { padding: 0.2rem 0.7rem; font-size: 0.78rem; }
+  .filter-tabs {
+    -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
+    mask-image: linear-gradient(to right, #000 90%, transparent);
+  }
+
+  /* E) Explore section fills viewport correctly */
+  .explore-section { min-height: 100dvh; }
+
+  /* B) Highlights: restack photo on top, text below */
+  .entry-row { flex-direction: column; gap: 0.7rem; }
+  .entry-thumb-wrap { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+  .entry-highlight .entry-thumb-wrap { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+
+  /* C) Timeline: bring photos back, stacked, gutter/spine/dots untouched */
+  .timeline-list .entry-thumb-wrap { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
+}
