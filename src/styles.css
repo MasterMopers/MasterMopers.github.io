@@ -164,9 +164,6 @@ a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
 }
 
 @media (max-width: 540px) {
-  .bio-wrapper { flex-direction: column; }
-  .bio-photo-wrap { flex: 0 0 auto; width: 100%; height: 14rem; }
-
   .explore-section { padding-top: 4vh; }
 
   /* Highlights: revert the size boosts so entries fit the narrow screen */
@@ -617,42 +614,64 @@ ul { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 540px) {
   body { font-size: 13px; }
 
-  /* A) Hero fits one screen, no toolbar clipping */
+  /* A) Hero: circular photo on top, everything fits one screen.
+     Tunables: photo size (width/height on .bio-photo-wrap), main
+     padding (last value = space under the Explore button), margins. */
   .home main {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    padding: 3.5rem 1.4rem 1.5rem;
+    padding: 2.2rem 1.4rem 8vh;
   }
-  .contact-line { margin-bottom: 1.2rem; }
-  .bio-wrapper {
-    margin-bottom: 1.2rem;
-    flex: 1 1 auto;
-    min-height: 0;
-  }
+  .bio-wrapper { display: contents; }
   .bio-photo-wrap {
-    flex: 1 1 auto;
-    width: 100%;
-    height: auto;
-    min-height: 120px;
+    order: -1;              /* lifts photo above the name */
+    align-self: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    margin-bottom: 1.3rem;
   }
   .bio-photo-wrap img { object-position: center 35%; }
+  .bio-text { margin: 0 0 1.5rem; }
+  .contact-line { margin-bottom: 1rem; }
 
-  /* D) Tab bar affordance */
+  /* D) Tab bar: wrap into rows instead of sideways scrolling */
   .filter-btn { padding: 0.2rem 0.7rem; font-size: 0.78rem; }
   .filter-tabs {
-    -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
-    mask-image: linear-gradient(to right, #000 90%, transparent);
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    overflow-x: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   /* E) Explore section fills viewport correctly */
   .explore-section { min-height: 100dvh; }
 
-  /* B) Highlights: restack photo on top, text below */
+  /* B) Preview photos: square, centered, letterboxed (no cropping).
+     Tunables: 14rem = max square size, 1/1 = aspect ratio. */
   .entry-row { flex-direction: column; gap: 0.7rem; }
-  .entry-thumb-wrap { width: 100%; height: auto; aspect-ratio: 3 / 2; }
-  .entry-highlight .entry-thumb-wrap { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+  .entry-thumb-wrap,
+  .entry-highlight .entry-thumb-wrap,
+  .timeline-list .entry-thumb-wrap {
+    display: block;
+    width: min(100%, 14rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+  .entry-thumb { object-fit: contain; }
 
-  /* C) Timeline: bring photos back, stacked, gutter/spine/dots untouched */
-  .timeline-list .entry-thumb-wrap { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
+  /* C) Timeline: spine moved left, clear gap between date and dot.
+     Geometry: dot center = padding-left − 1rem; keep ::before left
+     equal to that; date right edge = width − 4.25rem + padding-left. */
+  .timeline-list { padding-left: 4.75rem; }
+  .timeline-list::before { left: 3.75rem; }
+  .timeline-list li[data-date]::after {
+    left: -4.25rem;
+    width: 2.9rem;
+    font-size: 0.65rem;
+  }
 }
