@@ -129,6 +129,7 @@ function ExperienceEntry({ entry, tag, highlight, onClick, flashKey = 0 }) {
     <li
       className={`entry-row${highlight ? ' entry-highlight' : ''}${flash ? ' beyond-stem-flash' : ''}`}
       data-date={entry.dates ?? undefined}
+      data-beyond-stem={entry.beyond_stem ? 'true' : undefined}
       onClick={onClick}
     >
       {photo && (
@@ -160,6 +161,14 @@ export default function Home() {
   const [beyondStemFlash, setBeyondStemFlash] = useState(0);
   const [selectedEntry, setSelectedEntry] = useState(null);
   const revealRef = useRef(null);
+
+  useEffect(() => {
+    if (beyondStemFlash === 0) return;          // skip initial mount
+    const el = document.querySelector('[data-beyond-stem="true"]');
+    if (!el) return;                            // no Beyond STEM entry in this tab
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }, [beyondStemFlash]);
 
   if (status === 'loading') return <div className="home"><main>Loading…</main></div>;
   if (status === 'error') {

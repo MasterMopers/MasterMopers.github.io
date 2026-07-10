@@ -601,6 +601,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   animation: beyond-stem-flash-bg 6s ease-out forwards;
 }
 
+.entry-row[data-beyond-stem="true"] { scroll-margin-top: 1.5rem; }
+
 @media (prefers-reduced-motion: reduce) {
   .line, .toggle-icon, .explore-btn, .explore-arrow, .explore-section { animation: none; }
   body, a, .contact-line, .label, .desc, .entry-role,
