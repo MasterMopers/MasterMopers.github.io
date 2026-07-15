@@ -120,19 +120,6 @@
       "beyond_stem": false
     },
     {
-      "title": "Magnetic Linear Actuator",
-      "dates": "Spring 2023",
-      "affiliation": "Personal",
-      "one_liner": "Mechanical design of a magnetic linear actuator, with a hand-wound copper coil.",
-      "description": "Cool actuator stuff...",
-      "photos": [
-        { "src": "/magnetic_actuator.webp", "alt": "Magnetic Linear Actuator CAD model" },
-        { "src": "/magnetic_actuator_coil.webp", "alt": "Hand-wound copper coil" }
-      ],
-      "highlight": false,
-      "beyond_stem": false
-    },
-    {
       "title": "Mechanical Hand",
       "dates": "Spring 2023",
       "affiliation": "Personal",
