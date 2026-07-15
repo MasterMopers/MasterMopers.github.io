@@ -118,6 +118,33 @@
       "photos": [{ "src": "/robot_gripper.webp", "alt": "Robot Gripper" }],
       "highlight": false,
       "beyond_stem": false
+    },
+    {
+      "title": "Magnetic Linear Actuator",
+      "dates": "Spring 2023",
+      "affiliation": "Personal",
+      "one_liner": "Mechanical design of a magnetic linear actuator, with a hand-wound copper coil.",
+      "description": "Cool actuator stuff...",
+      "photos": [
+        { "src": "/magnetic_actuator.webp", "alt": "Magnetic Linear Actuator CAD model" },
+        { "src": "/magnetic_actuator_coil.webp", "alt": "Hand-wound copper coil" }
+      ],
+      "highlight": false,
+      "beyond_stem": false
+    },
+    {
+      "title": "Mechanical Hand",
+      "dates": "Spring 2023",
+      "affiliation": "Personal",
+      "one_liner": "Cable-driven mechanical hand, from a wooden proof of concept to a CAD design and 3D-printed fingers.",
+      "description": "Cool hand stuff...",
+      "photos": [
+        { "src": "/mechanical_hand.webp", "alt": "Mechanical Hand CAD model" },
+        { "src": "/mechanical_hand_wood.webp", "alt": "Wooden prototype of the mechanical hand" },
+        { "src": "/mechanical_hand_finger.webp", "alt": "3D-printed finger prototype" }
+      ],
+      "highlight": false,
+      "beyond_stem": false
     }
   ],
   "hackathons": [
