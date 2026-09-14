@@ -73,6 +73,18 @@
   ],
   "projects": [
     {
+      "title": "Adjustable Bench Power Supply",
+      "dates": "Fall 2026",
+      "affiliation": "Personal",
+      "one_liner": "Custom bench power supply built from a switching supply and buck converter for adjustable, current-limited output",
+      "description": "Cool power supply stuff...",
+      "photos": [
+        { "src": "/power_supply.webp", "alt": "Adjustable Bench Power Supply" },
+        { "src": "/power_supply_wiring.webp", "alt": "Adjustable Bench Power Supply wiring" }
+      ],
+      "highlight": false
+    },
+    {
       "title": "Cassette Themed Room w/ a Life-Sized Working Cassette",
       "dates": "Spring 2026",
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
@@ -101,7 +113,7 @@
     },
     {
       "title": "Shortfilm Production Crew",
-      "dates": "April 2024",
+      "dates": "Spring 2024",
       "affiliation": "NYU Senior Student Thesis Film",
       "one_liner": "Spent a week shooting a thriller short film all over NYC",
       "description": "Cool film stuff...",

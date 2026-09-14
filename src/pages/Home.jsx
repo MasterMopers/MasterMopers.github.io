@@ -114,7 +114,7 @@ function parseDateForSort(dateStr) {
   if (!years) return 0;
   const year = Math.max(...years.map(Number));
   const lower = dateStr.toLowerCase();
-  const season = lower.includes('summer') ? 3 : lower.includes('spring') ? 2 : lower.includes('fall') || lower.includes('autumn') ? 1 : 0;
+  const season = lower.includes('fall') || lower.includes('autumn') ? 3 : lower.includes('summer') ? 2 : lower.includes('spring') ? 1 : 0;
   return year * 10 + season;
 }
 
