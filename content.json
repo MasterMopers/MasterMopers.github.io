@@ -16,18 +16,107 @@
       "role": "Sensor Hardware Design Engineer",
       "dates": "Summer 2026",
       "one_liner": "Owned full-stack development of tactile sensing for dextrous manipulation",
-      "description": "Owned full-stack development of a piezoresistive FSR tactile sensing matrix for a human data-collection glove and robot hand, designing 9 FPC sensors from scratch in KiCad down to 0.2mm resolution and engineering the full stimulus-to-visualization pipeline.",
+      "description": "Owned full-stack development of tactile sensing for dextrous manipulation",
       "photos": [{ "src": "/origami_robotics.webp", "alt": "Origami Robotics" }],
-      "highlight": true
+      "feature_photo": { "src": "/origami_workbench.webp", "alt": "Soldering at the workbench while developing the tactile sensors" },
+      "highlight": true,
+      "sections": [
+        {
+          "label": "why?",
+          "paragraphs": [
+            "I chose to work for Origami Robotics because they were incredibly aligned with my technical interests and are an up-and-coming startup with a smart team. I was also incredibly interested in the specific role and project I worked on — developing sensors for dextrous robotic hands."
+          ]
+        },
+        {
+          "label": "what is it?",
+          "paragraphs": [
+            "At Origami, I developed a tactile sensing system applicable to our robotic hand and data-collection device. I organized my internship work in three phases.",
+            "Phase 1 — I recreated and familiarized myself with the open-source research project <a href=\"https://flexitac.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">FlexiTac</a> from Columbia University by Binghao Huang.",
+            "Phase 2 — I conducted a study on 9 different piezoresistive sensors I designed to understand how altering transducer parameters affected the balance of resolution and reliability.",
+            "Phase 3 (where most of my time was spent) — I designed a complete sensing system for our robotic hand and data-collection device. In total I explored three fundamentally different solutions, since designing the high-level architecture of tactile sensing for a hand means deciding where you lie on the spectrum from “centralized” to “localized.” By centralized I mean an architecture that controls and processes sensing for dedicated sensing zones all on one central board — every trace eventually has to get routed from its sensing zone back to that central PCB. By localized I mean an architecture where the control and processing happens at essentially the same location as the sensing zone itself, so each zone is handled by an independent device and data gets acquired from all of them to form a full tactile image.",
+            "About piezoresistive-based tactile arrays in general:"
+          ],
+          "list": [
+            "How they work — <em>coming soon…</em>",
+            "Taking advantage of your ADC — <em>coming soon…</em>"
+          ]
+        },
+        {
+          "label": "problem solving",
+          "paragraphs": [
+            "Biggest problem solved: crosstalk in piezoresistive-based tactile arrays."
+          ],
+          "list": [
+            "Full write-up — <em>coming soon…</em>"
+          ]
+        },
+        {
+          "label": "technical skills",
+          "list": [
+            "Analog — divider readout and R_pull_down selection, sneak-path analysis, TIA and virtual ground, ADC fundamentals",
+            "PCB/FPC — KiCad 10, coverlay, stiffeners, Onshape–KiCad workflow for parametric outlines, JLCPCB/LCSC fab and assembly (BOM/CPL, pin-1 checks)",
+            "Embedded — STM32G474, PlatformIO/HAL, CAN FD (native FDCAN + SPI-CAN), SWD flashing, CubeMX pin planning",
+            "Software — Python, MuJoCo, AI-assisted workflow",
+            "3D Printing / Laser Cutter —<ul><li>Printing PLA and TPU on BambuLab</li><li>Laser cutting velostat on BambuLab</li></ul>"
+          ]
+        },
+        {
+          "label": "interesting thoughts",
+          "paragraphs": [
+            "Working on this project made me realize how incredible our bodies are, especially our hands and skin. The amount of capability “packed” into our hands is astounding — they're a marvel of engineering, and our technology isn't advanced enough to fully replicate it. As a result, while working on these problems we constantly have to ask ourselves: “what's the solution that gets me 80% of the capability I need?” For example, I could try to build a sensing system that gives us data about every square millimeter of the hand, but we'd get 80% of the capability of “robotic skin” by just sensing 15 areas on the palm and fingers (and if you think about it, we basically only use our fingertips for most manipulation tasks anyway). This question of choosing the scale at which we mimic our biology is always grounded in the root purpose of the thing we're building — so we need a very clear understanding of that purpose, or we'll end up making decisions that optimize for the wrong thing."
+          ]
+        }
+      ]
     },
     {
       "org": "Amazon (mass satellite constellation for global internet)",
       "role": "Hardware Development Engineer",
       "dates": "Summer 2025",
       "one_liner": "Modeled battery data from internal cell testing to improve state estimation algorithms",
-      "description": "Modeling new OCV-SOC and capacity degradation data from internal cell testing to improve algorithm for battery state estimation.",
+      "description": "Modeled battery data from internal cell testing to improve state estimation algorithms",
       "photos": [{ "src": "/project_kuiper.webp", "alt": "Amazon" }],
-      "highlight": true
+      "feature_photo": { "src": "/amazon_rockets.webp", "alt": "Standing with Amazon's Blue Origin New Glenn rocket model at the Amazon office", "width": "260px" },
+      "highlight": true,
+      "sections": [
+        {
+          "label": "why?",
+          "paragraphs": [
+            "In my senior year of high school I was applying to many scholarships to help pay for college and I came across the <a href=\"https://www.amazonfutureengineer.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon Future Engineer Scholarship Program</a> and I sent an application not expecting much. A couple weeks later an Amazon box arrived at my door and I was confused because I hadn't ordered anything — to my surprise it was to announce that I'd won the award. I had always been interested in Amazon because I knew they had a lot of teams working on interesting technologies, and I was lucky to get paired with an incredibly interesting team."
+          ]
+        },
+        {
+          "label": "what is it?",
+          "paragraphs": [
+            "After my freshman year of college I interned on the power systems team at Amazon's LEO department (previously named Project Kuiper). Over the summer I completed two projects — I finished the first one quickly on my own, then spent the rest of the summer working under one of the team's PhD engineers, who taught me the electrical theory I needed to take on the work."
+          ],
+          "list": [
+            "Project #1 — streamlined the process for the power system team to investigate issues with individual active satellites. <em>(write-up coming soon…)</em>",
+            "Project #2 — modeled new voltage and capacity data from internal cell testing to improve the algorithm for battery state estimation. <em>(write-up coming soon…)</em>"
+          ]
+        },
+        {
+          "label": "problem solving",
+          "paragraphs": [
+            "<em>Coming soon…</em>"
+          ]
+        },
+        {
+          "label": "technical skills",
+          "list": [
+            "Battery modeling — equivalent circuit models, OCV-SOC curves, capacity degradation across temperature and age, state estimation",
+            "Cell testing — cell test data analysis, test protocol evaluation, model fitting to test data",
+            "Telemetry — on-orbit battery telemetry pipeline, on-demand checks against critical operating limits, flight data analysis",
+            "Software — Python, Pandas, Matplotlib, legacy codebase extension, large-dataset processing",
+            "Communication — technical reports for power system team reviews"
+          ]
+        },
+        {
+          "label": "interesting thoughts",
+          "paragraphs": [
+            "<em>Coming soon…</em>"
+          ]
+        }
+      ]
     },
     {
       "org": "FIRST Robotics Competition Team 1678 Citrus Circuits",
