@@ -96,6 +96,39 @@ function Modal({ entry, onClose }) {
           </>
         )}
 
+        {entry.sections?.length > 0 && (
+          <div className="modal-sections">
+            {entry.sections.map((section, i) => {
+              const withPhoto = i === 0 && entry.feature_photo;
+              const body = (
+                <>
+                  <p className="modal-section-label">// {section.label}</p>
+                  {section.paragraphs?.map((p, j) => (
+                    <p className="modal-body" key={j} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                  {section.list?.length > 0 && (
+                    <ul className="modal-section-list">
+                      {section.list.map((item, j) => (
+                        <li key={j} dangerouslySetInnerHTML={{ __html: item }} />
+                      ))}
+                    </ul>
+                  )}
+                </>
+              );
+              return withPhoto ? (
+                <div className="modal-section modal-section-with-photo" key={i}>
+                  <div className="modal-section-text">{body}</div>
+                  <div className="modal-section-photo-wrap" style={entry.feature_photo.width ? { width: entry.feature_photo.width } : undefined}>
+                    <img className="modal-section-photo" src={entry.feature_photo.src} alt={entry.feature_photo.alt ?? ''} />
+                  </div>
+                </div>
+              ) : (
+                <div className="modal-section" key={i}>{body}</div>
+              );
+            })}
+          </div>
+        )}
+
         {entry.photos?.length > 1 && (
           <div className="modal-photos">
             {entry.photos.slice(1).map((photo, i) => (

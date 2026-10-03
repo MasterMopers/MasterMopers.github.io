@@ -480,7 +480,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   align-items: center;
   justify-content: center;
   z-index: 300;
-  padding: 1rem;
+  padding: 0 1rem;
   animation: overlay-in 0.2s ease both;
 }
 @keyframes overlay-in {
@@ -492,8 +492,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   background: var(--bg);
   border: 1px solid var(--rule);
   border-radius: 4px;
-  width: min(960px, 94vw);
-  max-height: 90vh;
+  width: min(1140px, 94vw);
+  height: 100vh;
   overflow-y: auto;
   padding: 2.5rem;
   position: relative;
@@ -567,6 +567,59 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-size: 0.78rem;
   color: var(--muted);
   transition: border-color 0.4s ease, color 0.4s ease;
+}
+.modal-section-with-photo {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+.modal-section-text {
+  flex: 1;
+  min-width: 0;
+}
+.modal-section-photo-wrap {
+  flex-shrink: 0;
+  width: 380px;
+}
+.modal-section-photo {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+@media (max-width: 680px) {
+  .modal-section-with-photo { flex-direction: column; }
+  .modal-section-photo-wrap { width: 100%; }
+}
+
+.modal-sections {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--rule);
+  transition: border-color 0.4s ease;
+}
+.modal-section + .modal-section {
+  margin-top: 1rem;
+}
+.modal-section-label {
+  color: var(--fg);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35rem;
+  transition: color 0.4s ease;
+}
+.modal-section-list {
+  margin: 0.7rem 0 0;
+  padding-left: 1.3rem;
+  line-height: 1.75;
+}
+.modal-section-list li {
+  margin: 0 0 0.4rem;
+}
+.modal-section-list ul {
+  margin: 0.3rem 0 0.4rem;
+  padding-left: 1.2rem;
 }
 .modal-links {
   display: flex;
