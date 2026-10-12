@@ -9,7 +9,7 @@
       { "key": "github", "label": "GitHub", "url": "https://github.com/MasterMopers" }
     ]
   },
-  "about_me": "More about me...",
+  "about_me": "I'm from California, and after being admitted to CMU, I took a gap year to live outside an institution while I still had few responsibilities. I chose to focus exclusively on art, learning videography and working on everything from Jubilee episodes to an NYU thesis film shot overnight across New York. I'm also really into calisthenics, soccer, Star Trek, and 80s and house music.",
   "experience": [
     {
       "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
@@ -162,25 +162,119 @@
   ],
   "projects": [
     {
+      "title": "Torque-Controlled Robot Joint",
+      "dates": "Fall 2026",
+      "affiliation": "Personal",
+      "one_liner": "A robot joint built from fundamental components that measures and controls its own output torque.",
+      "description": "A robot joint built from fundamental components that measures and controls its own output torque.",
+      "highlight": false,
+      "sections": [
+        {
+          "label": "why?",
+          "paragraphs": [
+            "Sensing and actuation are how a robot's machine learning model touches reality: sensors are how it perceives the world, and actuators are how its decisions become physical action. At Origami I built the sensing side. Here I'm building both, to understand them deeply enough to innovate on them."
+          ]
+        },
+        {
+          "label": "what is it?",
+          "paragraphs": [
+            "Estimating a joint's torque from motor current is imperfect, because energy is lost in hard-to-predict ways such as gearbox friction. This joint measures its real output torque with a strain-gauge sensor, compares it against the current-based estimate, uses the measurement to control the joint, and yields when pushed by hand."
+          ]
+        },
+        {
+          "label": "how it works",
+          "paragraphs": [
+            "Sensor: strain-gauge load cell, then an instrumentation amplifier, an offset stage, and an anti-alias filter into the microcontroller's ADC. Motor driver: a three-phase inverter from six MOSFETs with gate drivers, current sensing, a magnetic encoder, and field-oriented control on an STM32. Joint: a 3D-printed cycloidal gearbox from Berkeley's open-source Humanoid Lite."
+          ]
+        },
+        {
+          "label": "status",
+          "paragraphs": [
+            "Design complete and all components chosen; the build is underway. Full write-up coming as it progresses."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4-DOF Stepper Arm",
+      "dates": "Fall 2026",
+      "affiliation": "Personal",
+      "one_liner": "4-DOF robotic arm built from salvaged 3D printer steppers",
+      "description": "4-DOF robotic arm built from salvaged 3D printer steppers",
+      "highlight": false,
+      "sections": [
+        {
+          "label": "overview",
+          "paragraphs": [
+            "A custom 4-DOF arm driven by the stepper motors from my old Creality CR-10, with printed harmonic drive gearboxes and closed-loop drivers. Built with a mechanical engineering friend, the goal is a cheap, maintainable arm designed from scratch around four NEMA 17 steppers salvaged from a Creality CR-10. Links, joint layout, and end effector are custom and expected to go through several iterations."
+          ]
+        },
+        {
+          "label": "hardware",
+          "paragraphs": [
+            "Each joint uses a printable Robrotics HDP30 harmonic drive (30:1). Motors run on MKS SERVO42D closed-loop drivers, commanded over STEP/DIR from an ESP32, powered by a 12 V 5 A supply. No belts anywhere."
+          ]
+        },
+        {
+          "label": "status",
+          "paragraphs": [
+            "Currently on single-joint bring-up: one gearbox on one motor, verifying driver calibration and motion before scaling to all four joints."
+          ]
+        }
+      ]
+    },
+    {
       "title": "Adjustable Bench Power Supply",
       "dates": "Fall 2026",
       "affiliation": "Personal",
       "one_liner": "Custom bench power supply built from a switching supply and buck converter for adjustable, current-limited output",
-      "description": "Cool power supply stuff...",
+      "description": "Custom bench power supply built from a switching supply and buck converter for adjustable, current-limited output",
       "photos": [
-        { "src": "/power_supply.webp", "alt": "Adjustable Bench Power Supply" },
-        { "src": "/power_supply_wiring.webp", "alt": "Adjustable Bench Power Supply wiring" }
+        { "src": "/power_supply_front.webp", "alt": "Adjustable Bench Power Supply" },
+        { "src": "/power_supply.webp", "alt": "Adjustable Bench Power Supply on a shelf" },
+        { "src": "/power_supply_wiring.webp", "alt": "Adjustable Bench Power Supply wiring" },
+        { "src": "/power_supply_open.webp", "alt": "Adjustable Bench Power Supply enclosure open, showing the internal wiring" }
       ],
-      "highlight": false
+      "highlight": false,
+      "sections": [
+        {
+          "label": "why?",
+          "paragraphs": [
+            "The purpose of this project was to learn more about power electronics and to create an adjustable bench power supply for future electronics projects. I had also salvaged a power supply from my old Creality CR-10 3D printer, so I wanted to put it to use in a project."
+          ]
+        },
+        {
+          "label": "what is it?",
+          "paragraphs": [
+            "I built an adjustable bench supply from the 12 V / 30 A switching supply (SMPS) salvaged from my Creality CR-10. It feeds a DPS5005 CC/CV buck module (CC/CV: it regulates either constant current or constant voltage, whichever limit is hit first). The output is 0 to about 10.5 V and 0 to 5 A, with live voltage and current shown on the module's LCD."
+          ]
+        },
+        {
+          "label": "problem solving",
+          "paragraphs": [
+            "The biggest problem I ran into with this project was actually the enclosure, not the electronics — the wiring was simple and everything worked on the first try (which never happens). I first designed an enclosure to be laser cut from acrylic using an online DXF generator, modified in Onshape. For some reason the units the online tool generated were incorrect, so the box came out oversized. I still laser cut the parts anyway, because I wanted a complete first version to test the whole thing together, rather than trying to perfect every part before combining them — building a smaller-scale, complete version teaches you more than spending all your energy getting one part exactly right on the first try, which is nearly impossible without an unreasonable amount of knowledge and experience. Once I confirmed everything worked, I designed a second enclosure to be 3D printed, which is more compact and looks better.",
+            "I also went with the DPS5005 buck module instead of the DPS5015 to cut cost, since 5 A is plenty for most bench supply uses."
+          ]
+        }
+      ]
     },
     {
       "title": "Life-sized Functional Cassette Player",
       "dates": "Spring 2026",
       "affiliation": "Sigma Phi Epsilon 'Booth' for Spring Carnival @ CMU",
       "one_liner": "Cassette themed room for music technology throughout the decades",
-      "description": "Cool booth room...",
+      "description": "Cassette themed room for music technology throughout the decades",
       "photos": [{ "src": "/giant_cassette.webp", "alt": "Giant Cassette" }],
-      "highlight": false
+      "highlight": false,
+      "sections": [
+        {
+          "label": "why?",
+          "paragraphs": [
+            "\"Booth\" is a very big tradition at CMU that involves building multi-story houses around a theme. The work for Booth spans about a semester and is generally split into two categories: crafts and structure. Crafts refers to all the art that expresses the ideas in the theme, including robotic decorations, visual elements, and interactive activities. Structure refers to the structural design of the house, which needs to get safety-certified since people at Spring Carnival walk through every booth.",
+            "This year I was a room chair, meaning I led all the crafts for one of the rooms. The sub-theme of my room was cassettes, so the aesthetic I was going for was like an 80's teen boy's room. A lot of the inspiration for the room came from Ready Player One and Guardians of the Galaxy."
+          ]
+        }
+      ]
     },
     {
       "title": "Treasure Chest w/ Lasers",
