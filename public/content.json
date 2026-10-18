@@ -9,7 +9,7 @@
       { "key": "github", "label": "GitHub", "url": "https://github.com/MasterMopers" }
     ]
   },
-  "about_me": "I'm from California, and after being admitted to CMU, I took a gap year to live outside an institution while I still had few responsibilities. I chose to focus exclusively on art, learning videography and working on everything from Jubilee episodes to an NYU thesis film shot overnight across New York. I'm also really into calisthenics, soccer, Star Trek, and 80s and house music.",
+  "about_me": "I'm from California, and after being admitted to CMU, I took a gap year to live outside an institution while I still had few responsibilities. I chose to focus exclusively on art, learning videography and working on everything from Jubilee episodes to an NYU thesis film shot overnight across New York. I'm also really into calisthenics, soccer, Star Trek, and 80s and house music. Feel free to reach out if you have any cool ideas!",
   "experience": [
     {
       "org": "Origami Robotics (Humanoid Robotics Startup, YC W26)",
@@ -165,7 +165,7 @@
       "title": "Torque-Controlled Robot Joint",
       "dates": "Fall 2026",
       "affiliation": "Personal",
-      "one_liner": "A robot joint built from fundamental components that measures and controls its own output torque.",
+      "one_liner": "A robot joint built from fundamental components that measures and controls its own output torque. (In progress)",
       "description": "A robot joint built from fundamental components that measures and controls its own output torque.",
       "highlight": false,
       "sections": [
@@ -199,7 +199,7 @@
       "title": "4-DOF Stepper Arm",
       "dates": "Fall 2026",
       "affiliation": "Personal",
-      "one_liner": "4-DOF robotic arm built from salvaged 3D printer steppers",
+      "one_liner": "4-DOF robotic arm built from salvaged 3D printer steppers. (In progress)",
       "description": "4-DOF robotic arm built from salvaged 3D printer steppers",
       "highlight": false,
       "sections": [
