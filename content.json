@@ -167,12 +167,18 @@
       "affiliation": "Personal",
       "one_liner": "A robot joint built from fundamental components that measures and controls its own output torque. (In progress)",
       "description": "A robot joint built from fundamental components that measures and controls its own output torque.",
+      "photos": [
+        { "src": "/torque_joint.webp", "alt": "Torque-Controlled Robot Joint" },
+        { "src": "/torque_joint_motor.webp", "alt": "Torque-Controlled Robot Joint motor and magnetic encoder" },
+        { "src": "/torque_joint_circuit.webp", "alt": "Torque-Controlled Robot Joint sensor circuit on a breadboard" },
+        { "src": "/torque_joint_bench.webp", "alt": "Torque-Controlled Robot Joint on the test bench" }
+      ],
       "highlight": false,
       "sections": [
         {
           "label": "why?",
           "paragraphs": [
-            "Sensing and actuation are how a robot's machine learning model touches reality: sensors are how it perceives the world, and actuators are how its decisions become physical action. At Origami I built the sensing side. Here I'm building both, to understand them deeply enough to innovate on them."
+            "Sensing and actuation are how a robot's machine learning model touches reality: sensors are how it perceives the world, and actuators are how its decisions become physical action. I'm building both here, to understand them deeply enough to innovate on them."
           ]
         },
         {
@@ -201,12 +207,18 @@
       "affiliation": "Personal",
       "one_liner": "4-DOF robotic arm built from salvaged 3D printer steppers. (In progress)",
       "description": "4-DOF robotic arm built from salvaged 3D printer steppers",
+      "photos": [
+        { "src": "/stepper_arm.webp", "alt": "4-DOF Stepper Arm" },
+        { "src": "/stepper_arm_motor.webp", "alt": "4-DOF Stepper Arm motor with 3D-printed harmonic drive mount" },
+        { "src": "/stepper_arm_parts.webp", "alt": "4-DOF Stepper Arm motors and hardware" },
+        { "src": "/stepper_arm_driver.webp", "alt": "4-DOF Stepper Arm motor with closed-loop driver attached" }
+      ],
       "highlight": false,
       "sections": [
         {
           "label": "overview",
           "paragraphs": [
-            "A custom 4-DOF arm driven by the stepper motors from my old Creality CR-10, with printed harmonic drive gearboxes and closed-loop drivers. Built with a mechanical engineering friend, the goal is a cheap, maintainable arm designed from scratch around four NEMA 17 steppers salvaged from a Creality CR-10. Links, joint layout, and end effector are custom and expected to go through several iterations."
+            "A custom 4-DOF arm driven by the stepper motors from my old Creality CR-10, with printed harmonic drive gearboxes and closed-loop drivers. The goal is a cheap, maintainable arm designed from scratch around four NEMA 17 steppers salvaged from a Creality CR-10. Links, joint layout, and end effector are custom and expected to go through several iterations."
           ]
         },
         {
